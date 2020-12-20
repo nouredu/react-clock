@@ -30,6 +30,7 @@ export default function Clock({
   renderMinuteHand = true,
   renderMinuteMarks = true,
   renderNumbers,
+  numbersList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   renderSecondHand = true,
   secondHandLength = 90,
   secondHandOppositeLength,
@@ -74,7 +75,7 @@ export default function Clock({
           angle={i * 30}
           length={hourMarksLength}
           name="hour"
-          number={renderNumbers ? i : null}
+          number={renderNumbers ? numbersList[i] : null}
           width={hourMarksWidth}
         />,
       );

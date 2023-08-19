@@ -5,23 +5,19 @@
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
   "source": "src/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "sideEffects": [
     "*.css",
     "*.less"
   ],
   "scripts": {
-    "build": "yarn build-js-all && yarn copy-styles && yarn build-styles",
-    "build-js-all": "yarn build-js-esm && yarn build-js-umd",
-    "build-js-esm": "BABEL_ENV=production-esm babel src -d dist/esm --ignore \"**/*.spec.js,**/*.spec.jsx\"",
-    "build-js-umd": "BABEL_ENV=production-umd babel src -d dist/umd --ignore \"**/*.spec.js,**/*.spec.jsx\"",
-    "build-styles": "lessc ./dist/Clock.less ./dist/Clock.css",
-    "clean": "rimraf dist",
-    "copy-styles": "node ./copy-styles.js",
-    "jest": "jest",
-    "jest-coverage": "jest --coverage",
-    "lint": "eslint sample/ src/ test/ --ext .jsx,.js",
-    "prepack": "yarn clean && yarn build",
-    "test": "yarn lint && yarn jest"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "publish:npm": "rm -rf dist && mkdir dist && npx babel ./src/ -d dist --copy-files"
   },
   "jest": {
     "setupFiles": [
@@ -70,8 +66,8 @@
     "rimraf": "^5.0.1"
   },
   "peerDependencies": {
-    "react": "^15.5.0 || ^16.0.0 || ^17.0.0-0",
-    "react-dom": "^15.5.0 || ^16.0.0 || ^17.0.0-0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "files": [
     "LICENSE",

@@ -1,11 +1,17 @@
 {
-  "name": "react-clock-test-page",
+  "name": "test",
   "version": "2.3.0",
   "description": "A test page for React-Clock.",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
-    "start": "NODE_ENV=development webpack serve"
+    "build": "vite build",
+    "dev": "vite",
+    "format": "biome format",
+    "lint": "biome lint",
+    "preview": "vite preview",
+    "test": "yarn lint && yarn tsc && yarn format",
+    "tsc": "tsc"
   },
   "author": {
     "name": "Wojciech Maj",
@@ -13,29 +19,17 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@wojtekmaj/date-utils": "^1.0.0",
-    "prop-types": "^15.6.0",
-    "react": "^17.0.0",
-    "react-clock": "portal:../",
-    "react-dom": "^17.0.0"
+    "@wojtekmaj/date-utils": "^1.5.0",
+    "@wojtekmaj/react-hooks": "^1.20.0",
+    "react": "^18.2.0",
+    "react-clock": "workspace:packages/react-clock",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.4.1",
-    "babel-loader": "^8.0.0",
-    "css-loader": "^4.3.0",
-    "file-loader": "^6.1.0",
-    "html-webpack-plugin": "^4.4.0",
-    "less": "^3.12.0",
-    "less-loader": "^7.0.0",
-    "mini-css-extract-plugin": "^0.11.0",
-    "react-refresh": "^0.8.3",
-    "style-loader": "^1.2.0",
-    "webpack": "^5.4.0",
-    "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0"
+    "@biomejs/biome": "1.9.0",
+    "@types/react": "*",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.5.2",
+    "vite": "^6.2.4"
   }
 }
